@@ -1,0 +1,38 @@
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggle:hover {
+  background-color: var(--border-color);
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: currentColor;
+}
+
+.label {
+  text-transform: capitalize;
+}
+
+@media (max-width: 640px) {
+  .label {
+    display: none;
+  }
+  
+  .toggle {
+    padding: 0.5rem;
+  }
+}

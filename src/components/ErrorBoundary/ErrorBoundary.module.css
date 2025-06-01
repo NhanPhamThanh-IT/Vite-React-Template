@@ -1,0 +1,75 @@
+.errorContainer {
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid #ff5252;
+  box-shadow: 0 4px 12px rgba(255, 82, 82, 0.15);
+}
+
+.errorContainer h1 {
+  color: #ff5252;
+  margin-bottom: 1.5rem;
+}
+
+.errorDetails {
+  margin: 1.5rem 0;
+  cursor: pointer;
+}
+
+.errorDetails summary {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+
+.errorDetails pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  border-radius: 4px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #ff5252;
+}
+
+.componentStack {
+  margin-top: 0.5rem;
+  color: var(--text-color);
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.button:first-child {
+  background-color: #ff5252;
+  color: white;
+}
+
+.button:first-child:hover {
+  background-color: #ff3838;
+}
+
+.button:last-child {
+  background-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.button:last-child:hover {
+  opacity: 0.8;
+}
