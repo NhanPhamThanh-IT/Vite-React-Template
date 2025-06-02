@@ -1,9 +1,27 @@
+/**
+ * Theme Toggle Component Module
+ * 
+ * @module ThemeToggle
+ * @description A button component for cycling through theme options
+ */
 import { useTheme } from '@context'
 import styles from './ThemeToggle.module.css'
 
 /**
- * ThemeToggle component for switching between light, dark, and system themes
- * @returns {JSX.Element}
+ * Theme toggle component for switching between light, dark, and system themes
+ * 
+ * This component provides a button that allows users to cycle through the available
+ * theme options (light → dark → system → light). It displays the current theme name
+ * along with an appropriate icon representing each theme option.
+ * 
+ * Features:
+ * - Displays appropriate SVG icon for each theme mode
+ * - Shows current theme name as text
+ * - Provides tooltip with detailed theme information
+ * - Toggles between light, dark and system themes when clicked
+ * - Responds to screen size with responsive design
+ * 
+ * @returns {JSX.Element} Theme toggle button with icon and text
  */
 export default function ThemeToggle() {
   const { theme, toggleTheme, currentTheme } = useTheme()

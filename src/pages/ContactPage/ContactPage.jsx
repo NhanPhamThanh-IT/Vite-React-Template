@@ -1,7 +1,30 @@
+/**
+ * Contact Page Component Module
+ * 
+ * @module ContactPage
+ * @description Contact form page component with form state management
+ */
 import { useState } from 'react'
 import styles from './ContactPage.module.css'
 import Button from '@components/Button'
 
+/**
+ * Contact page component with a functional contact form
+ * 
+ * This page provides a contact form with basic validation and submission handling.
+ * It demonstrates form state management, field validation, and simulated form submission
+ * with loading and success states. In a production environment, you would replace
+ * the setTimeout with an actual API call to your backend service.
+ * 
+ * Form features:
+ * - Field validation with HTML5 constraints
+ * - Form state management with React hooks
+ * - Loading state during submission
+ * - Success message after submission
+ * - Form reset after successful submission
+ * 
+ * @returns {JSX.Element} The rendered contact page with form
+ */
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',

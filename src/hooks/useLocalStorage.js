@@ -1,10 +1,27 @@
+/**
+ * Local Storage Hook Module
+ * 
+ * @module useLocalStorage
+ * @description A custom React hook that provides state synchronized with localStorage
+ */
 import { useState, useEffect } from 'react'
 
 /**
- * Custom hook for handling local storage state
- * @param {string} key - Storage key
- * @param {any} initialValue - Initial value if key doesn't exist in storage
- * @returns {[any, Function]} - [storedValue, setValue]
+ * Custom hook for handling state that persists in localStorage
+ * 
+ * This hook works like React's useState but automatically stores and retrieves
+ * values from localStorage, providing persistence across page reloads and browser sessions.
+ * It handles serialization/deserialization of values via JSON and includes error handling
+ * for localStorage access issues.
+ * 
+ * @template T
+ * @param {string} key - The localStorage key to store/retrieve the value
+ * @param {T} initialValue - Initial value to use if no value exists in localStorage
+ * @returns {[T, React.Dispatch<React.SetStateAction<T>>]} A stateful value and a function to update it
+ * @example
+ * // Usage example
+ * const [user, setUser] = useLocalStorage('user', { name: 'Guest' });
+ * // Later: setUser({ name: 'John' }) - will update state and localStorage
  */
 export default function useLocalStorage(key, initialValue) {
   // Get stored value from localStorage or use initialValue
