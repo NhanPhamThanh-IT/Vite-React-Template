@@ -4,12 +4,12 @@
   max-width: 600px;
   background-color: var(--card-bg);
   border-radius: 8px;
-  border: 1px solid #ff5252;
-  box-shadow: 0 4px 12px rgba(255, 82, 82, 0.15);
+  border: 1px solid var(--error-color);
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .errorContainer h1 {
-  color: #ff5252;
+  color: var(--error-color);
   margin-bottom: 1.5rem;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .errorDetails pre {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: var(--code-bg);
   padding: 1rem;
   border-radius: 4px;
   overflow: auto;
@@ -33,7 +33,7 @@
   word-break: break-all;
   font-family: monospace;
   font-size: 0.9rem;
-  color: #ff5252;
+  color: var(--error-color);
 }
 
 .componentStack {
@@ -57,7 +57,7 @@
 }
 
 .button:first-child {
-  background-color: #ff5252;
+  background-color: var(--error-color);
   color: white;
 }
 

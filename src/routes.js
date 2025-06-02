@@ -8,6 +8,7 @@ const HomePage = lazy(() => import('@pages/HomePage'))
 const AboutPage = lazy(() => import('@pages/AboutPage'))
 const ContactPage = lazy(() => import('@pages/ContactPage'))
 const NotFoundPage = lazy(() => import('@pages/NotFoundPage'))
+const ThemeDemoPage = lazy(() => import('@pages/ThemeDemoPage'))
 
 /**
  * Main application routes configuration
@@ -21,6 +22,7 @@ const routes = [
       { index: true, element: HomePage },
       { path: 'about', element: AboutPage },
       { path: 'contact', element: ContactPage },
+      { path: 'theme-demo', element: ThemeDemoPage },
       { path: '*', element: NotFoundPage }
     ]
   }

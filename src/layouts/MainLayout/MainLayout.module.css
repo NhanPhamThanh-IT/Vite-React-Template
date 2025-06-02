@@ -5,8 +5,8 @@
 }
 
 .header {
-  background-color: var(--header-bg, #ffffff);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--header-bg);
+  box-shadow: 0 2px 4px var(--shadow-color);
   padding: 0 1rem;
   position: sticky;
   top: 0;
@@ -32,6 +32,12 @@
   align-items: center;
 }
 
+.themeControls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
 .main {
   flex: 1;
   background-color: var(--main-bg);
@@ -39,10 +45,10 @@
 }
 
 .footer {
-  background-color: var(--footer-bg, #f7f7f7);
+  background-color: var(--footer-bg);
   padding: 1.5rem;
   text-align: center;
-  color: var(--text-secondary-color, #666);
+  color: var(--text-secondary-color);
   font-size: 0.9rem;
-  border-top: 1px solid var(--border-color, #eaeaea);
+  border-top: 1px solid var(--border-color);
 }
