@@ -1,30 +1,54 @@
-import { Suspense, lazy } from 'react'
+import { Suspense } from 'react'
 import './styles/global.css'
-import { ThemeToggle, Spinner } from '@components'
-import { APP_NAME } from '@constants'
+import { Spinner } from '@components'
+import { useRoutes } from 'react-router-dom'
+import routes from './routes'
 
-// Lazy load HomePage for better performance
-const HomePage = lazy(() => import('@pages/HomePage'))
+// Loading component
+const PageLoader = () => (
+  <div className="loading-container">
+    <Spinner size="lg" />
+  </div>
+)
+
+/**
+ * Render a route with its element wrapped in Suspense
+ */
+const renderRoute = (Component) => {
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <Component />
+    </Suspense>
+  )
+}
+
+/**
+ * Create routes from configuration
+ */
+const createRoutesFromConfig = (routes) => {
+  return routes.map((route) => {
+    // Create the route element
+    const RouteElement = route.element
+    const routeElement = route.element 
+      ? <RouteElement /> 
+      : null
+
+    // Return the route configuration
+    return {
+      path: route.path,
+      element: routeElement,
+      children: route.children?.map((childRoute) => ({
+        index: childRoute.index || false,
+        path: childRoute.path,
+        element: renderRoute(childRoute.element)
+      }))
+    }
+  })
+}
 
 function App() {
-  return (
-    <div className="app">
-      <header>
-        <h1>{APP_NAME}</h1>
-        <div className="theme-toggle-container">
-          <ThemeToggle />
-        </div>
-      </header>
-      <main>
-        <Suspense fallback={<div className="loading-container"><Spinner size="lg" /></div>}>
-          <HomePage />
-        </Suspense>
-      </main>
-      <footer>
-        <p>© {new Date().getFullYear()} - Vite React Template</p>
-      </footer>
-    </div>
-  )
+  const routeElements = useRoutes(createRoutesFromConfig(routes))
+  return routeElements
 }
 
 export default App

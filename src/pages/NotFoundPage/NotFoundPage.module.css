@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.content {
+  text-align: center;
+  padding: 3rem;
+  max-width: 600px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.content h1 {
+  font-size: 5rem;
+  margin: 0;
+  color: var(--primary-color);
+  line-height: 1;
+}
+
+.content h2 {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.content p {
+  margin-bottom: 2rem;
+  color: var(--text-secondary-color, #666);
+}
