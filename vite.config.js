@@ -16,9 +16,10 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: ['./src/setupTests.js'],
-    include: ['**/*.{test,spec}.{js,jsx,ts,tsx}'],
-    css: false
+    setupFiles: ['./tests/setup/setupTests.js'],
+    include: ['./tests/**/*.{test,spec}.{js,jsx,ts,tsx}'],
+    exclude: ['node_modules', 'dist'],
+    css: true
   },
   resolve: {
     alias: {
