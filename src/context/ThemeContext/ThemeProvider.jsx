@@ -1,3 +1,10 @@
+/**
+ * Theme Provider Component Module
+ * 
+ * @module ThemeProvider
+ * @description Provides theme context and state management for the entire application,
+ * enabling dark mode, light mode, and system preference theme options.
+ */
 import { useState, useEffect } from 'react'
 import { useLocalStorage } from '@hooks'
 import { STORAGE_KEYS, THEME_MODES } from '@constants'
@@ -6,7 +13,15 @@ import { ThemeContext } from './ThemeContext'
 /**
  * Theme Provider Component
  * 
- * Provides theme context and functionality to switch between light and dark modes
+ * Manages application theming by:
+ * - Storing theme preference in localStorage for persistence across sessions
+ * - Detecting system color scheme preference
+ * - Applying the appropriate theme to the document
+ * - Providing theme state and controls to the entire component tree
+ * 
+ * @param {Object} props - Component props
+ * @param {React.ReactNode} props.children - Child components that will have access to the theme context
+ * @returns {JSX.Element} ThemeContext Provider with children
  */
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useLocalStorage(STORAGE_KEYS.THEME, THEME_MODES.SYSTEM)

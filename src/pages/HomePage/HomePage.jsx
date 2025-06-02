@@ -1,8 +1,24 @@
+/**
+ * Home Page Component Module
+ * 
+ * @module HomePage
+ * @description The application's landing page component
+ */
 import { useEffect, useState } from 'react'
 import styles from './HomePage.module.css'
 import Button from '@components/Button'
 import { useLocalStorage } from '@hooks'
 
+/**
+ * Home page component that serves as the landing page of the application
+ * 
+ * This component displays a welcome message, a counter demonstration that persists
+ * across page reloads using localStorage, and a list of features of the application.
+ * The counter state is stored in localStorage, so it maintains its value even when
+ * the user navigates away from the page or refreshes the browser.
+ * 
+ * @returns {JSX.Element} The rendered home page
+ */
 export default function HomePage() {
   const [count, setCount] = useLocalStorage('home-page-count', 0)
   const [message, setMessage] = useState('')

@@ -1,11 +1,50 @@
+/**
+ * Form Management Hook Module
+ * 
+ * @module useForm
+ * @description A custom React hook that provides comprehensive form state management
+ * with validation, error tracking, and submission handling
+ */
 import { useState, useCallback } from 'react'
 
 /**
- * Custom hook for managing form state and validation
- * @param {Object} initialValues - Initial form values
- * @param {function} validateFn - Validation function that returns errors object
- * @param {function} onSubmit - Function to call on successful form submission
- * @returns {Object} Form state and handlers
+ * Custom hook for advanced form state management with validation and submission handling
+ * 
+ * This hook provides a complete solution for managing form state, including:
+ * - Field value tracking
+ * - Field-level validation on blur
+ * - Form-level validation on submit
+ * - Tracking touched fields for validation display
+ * - Submission state tracking
+ * - Error state management
+ * 
+ * @param {Object} initialValues - Initial values for form fields
+ * @param {Function} validateFn - Validation function that accepts values and returns an error object
+ * @param {Function} onSubmit - Async function to handle form submission when validation passes
+ * @returns {Object} Form utilities object with the following properties:
+ * @returns {Object} .values - Current form values
+ * @returns {Object} .errors - Current validation errors
+ * @returns {Object} .touched - Object tracking which fields have been touched
+ * @returns {Function} .handleChange - Change handler for form controls
+ * @returns {Function} .handleBlur - Blur handler for form controls
+ * @returns {Function} .handleSubmit - Submit handler that validates and calls onSubmit
+ * @returns {Function} .resetForm - Function to reset form to initial values
+ * @returns {boolean} .isSubmitting - Flag indicating if form is currently submitting
+ * @returns {boolean} .submitted - Flag indicating if form was successfully submitted
+ * @returns {Function} .setValues - Function to directly update form values
+ * @example
+ * // Basic usage
+ * const { values, handleChange, handleSubmit } = useForm(
+ *   { email: '', password: '' },
+ *   values => {
+ *     const errors = {};
+ *     if (!values.email) errors.email = 'Email is required';
+ *     return errors;
+ *   },
+ *   async (values) => {
+ *     await api.login(values);
+ *   }
+ * );
  */
 export default function useForm(initialValues = {}, validateFn = () => ({}), onSubmit = () => {}) {
   const [values, setValues] = useState(initialValues)

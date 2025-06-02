@@ -1,3 +1,15 @@
+/**
+ * Application routing configuration
+ * 
+ * This module defines the route structure for the entire application using
+ * React Router v7 conventions. It uses React.lazy for code splitting and
+ * lazy loading of page components to improve initial load performance.
+ * 
+ * Routes are organized hierarchically with the MainLayout as the parent
+ * route container, allowing child routes to be rendered inside the layout.
+ * 
+ * @module routes
+ */
 import { lazy } from 'react'
 
 // Layouts
@@ -12,7 +24,12 @@ const ThemeDemoPage = lazy(() => import('@pages/ThemeDemoPage'))
 
 /**
  * Main application routes configuration
- * This makes it easier to add new routes and organize them
+ * 
+ * The routes array defines all application routes in a nested structure:
+ * - Root route ('/') uses MainLayout as the container
+ * - Child routes define paths relative to their parent
+ * - Each route specifies which component to render for that path
+ * - The wildcard route ('*') renders the NotFoundPage for undefined routes
  */
 const routes = [
   {

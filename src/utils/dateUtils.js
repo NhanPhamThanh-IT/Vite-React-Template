@@ -1,9 +1,26 @@
 /**
+ * Date Utility Functions Module
+ * 
+ * @module dateUtils
+ * @description A collection of utility functions for date formatting and manipulation
+ */
+
+/**
  * Formats a date according to the specified format
- * @param {Date|string|number} date - The date to format
- * @param {string} [format='default'] - The format to use ('default', 'short', 'long', 'relative')
- * @param {string} [locale='en-US'] - The locale to use for formatting
+ * 
+ * This function provides flexible date formatting options using the Intl.DateTimeFormat API.
+ * It accepts dates in various formats (Date object, string, or timestamp) and offers
+ * several predefined format options as well as locale support.
+ * 
+ * @param {Date|string|number} date - The date to format (Date object, ISO string, or timestamp)
+ * @param {string} [format='default'] - The format to use:
+ *   - 'default': Standard date and time (e.g., "12/31/2023, 11:59 PM")
+ *   - 'short': Abbreviated month with day and year (e.g., "Dec 31, 2023")
+ *   - 'long': Full weekday, month, day, year and time (e.g., "Sunday, December 31, 2023, 11:59 PM")
+ *   - 'relative': Relative time (e.g., "2 days ago", "in 3 hours")
+ * @param {string} [locale='en-US'] - The locale to use for formatting (BCP 47 language tag)
  * @returns {string} The formatted date string
+ * @throws {Error} Logs error and returns "Invalid date" if the input cannot be parsed as a date
  */
 export function formatDate(date, format = 'default', locale = 'en-US') {
   const dateObj = date instanceof Date ? date : new Date(date)
@@ -45,6 +62,18 @@ export function formatDate(date, format = 'default', locale = 'en-US') {
  * @param {Date} date - The date to compare against now
  * @param {string} [locale='en-US'] - The locale to use for formatting
  * @returns {string} The relative time string
+ */
+/**
+ * Helper function to generate relative time strings
+ * 
+ * This internal function calculates the appropriate time unit and value for
+ * displaying a date as a relative time string (e.g., "2 days ago", "in 3 hours").
+ * It uses the Intl.RelativeTimeFormat API for localized formatting.
+ * 
+ * @private
+ * @param {Date} date - Date to generate relative time for
+ * @param {string} [locale='en-US'] - BCP 47 language tag for localization
+ * @returns {string} Localized relative time string
  */
 function getRelativeTimeString(date, locale = 'en-US') {
   // Calculate the time difference in seconds
