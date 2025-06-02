@@ -1,8 +1,8 @@
 // Test script for router setup
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import App from './App';
-import { ThemeProvider } from '@context';
+import App from '../../../src/App';
+import { ThemeProvider } from '../../../src/context';
 
 // Helper function to render with router
 const renderWithRouter = (ui, { route = '/' } = {}) => {

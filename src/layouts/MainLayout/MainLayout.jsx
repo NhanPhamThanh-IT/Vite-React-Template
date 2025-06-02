@@ -6,11 +6,10 @@ import { APP_NAME } from '@constants'
 
 export default function MainLayout() {
   return (
-    <div className={styles.layout}>
-      <header className={styles.header}>
+    <div className={styles.layout}>      <header className={styles.header}>
         <div className={styles.headerContent}>
           <h1>{APP_NAME}</h1>
-          <div className={styles.themeToggleContainer}>
+          <div className={styles.themeToggleContainer} data-testid="theme-toggle-container">
             <ThemeToggle />
           </div>
         </div>

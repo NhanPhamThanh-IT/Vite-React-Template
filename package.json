@@ -9,7 +9,12 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:components": "vitest run ./tests/unit/components",
+    "test:pages": "vitest run ./tests/unit/pages",
+    "test:hooks": "vitest run ./tests/unit/hooks",
+    "test:routes": "vitest run ./tests/unit/routes"
   },
   "dependencies": {
     "axios": "^1.6.7",
