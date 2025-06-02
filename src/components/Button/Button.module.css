@@ -20,8 +20,9 @@
 }
 
 .secondary {
-  background-color: #e9ecef;
-  color: #495057;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
 }
 
 .outline {

@@ -11,7 +11,7 @@
   max-width: 600px;
   background-color: var(--card-bg);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .content h1 {
@@ -28,5 +28,5 @@
 
 .content p {
   margin-bottom: 2rem;
-  color: var(--text-secondary-color, #666);
+  color: var(--text-secondary-color);
 }

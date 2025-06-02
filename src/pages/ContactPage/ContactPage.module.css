@@ -9,7 +9,7 @@
   padding: 2rem;
   background-color: var(--card-bg);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px var(--shadow-color);
 }
 
 .formGroup {
@@ -49,8 +49,8 @@
 
 .successMessage {
   padding: 1rem;
-  background-color: var(--success-color, #dff0d8);
-  color: var(--success-text, #3c763d);
+  background-color: var(--success-color);
+  color: var(--success-text);
   border-radius: 4px;
   margin-bottom: 1.5rem;
   animation: fadeIn 0.5s ease;

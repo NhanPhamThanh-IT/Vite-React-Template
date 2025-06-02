@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import styles from './MainLayout.module.css'
-import { ThemeToggle } from '@components'
+import { ThemeToggle, ThemeIndicator } from '@components'
 import Navigation from '@components/Navigation'
 import { APP_NAME } from '@constants'
 
@@ -10,7 +10,10 @@ export default function MainLayout() {
         <div className={styles.headerContent}>
           <h1>{APP_NAME}</h1>
           <div className={styles.themeToggleContainer} data-testid="theme-toggle-container">
-            <ThemeToggle />
+            <div className={styles.themeControls}>
+              <ThemeIndicator />
+              <ThemeToggle />
+            </div>
           </div>
         </div>
         <Navigation />

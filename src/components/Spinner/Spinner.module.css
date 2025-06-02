@@ -6,6 +6,11 @@
   animation: spin 1s ease-in-out infinite;
 }
 
+:root[data-theme="dark"] .spinner {
+  border-color: rgba(255, 255, 255, 0.1);
+  border-top-color: var(--primary-color);
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);

@@ -21,13 +21,20 @@ export default function Navigation() {
           >
             About
           </NavLink>
-        </li>
-        <li>
+        </li>        <li>
           <NavLink 
             to="/contact" 
             className={({ isActive }) => isActive ? styles.activeLink : undefined}
           >
             Contact
+          </NavLink>
+        </li>
+        <li>
+          <NavLink 
+            to="/theme-demo" 
+            className={({ isActive }) => isActive ? styles.activeLink : undefined}
+          >
+            Theme Demo
           </NavLink>
         </li>
       </ul>

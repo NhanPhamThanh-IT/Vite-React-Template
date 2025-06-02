@@ -9,8 +9,10 @@ describe('Navigation Component', () => {
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('About')).toBeInTheDocument();
     expect(screen.getByText('Contact')).toBeInTheDocument();
+    expect(screen.getByText('Theme Demo')).toBeInTheDocument();
   });
-    test('home link has active class when on home route', () => {
+  
+  test('home link has active class when on home route', () => {
     const { container } = renderWithMemoryRouter(<Navigation />, { route: '/' });
     
     // Find link element by text, then check if it has the active class
@@ -20,10 +22,13 @@ describe('Navigation Component', () => {
     // Other links should not be active
     const aboutLink = screen.getByText('About').closest('a');
     const contactLink = screen.getByText('Contact').closest('a');
+    const themeDemoLink = screen.getByText('Theme Demo').closest('a');
     expect(aboutLink.className).not.toContain('activeLink');
     expect(contactLink.className).not.toContain('activeLink');
+    expect(themeDemoLink.className).not.toContain('activeLink');
   });
-    test('about link has active class when on about route', () => {
+  
+  test('about link has active class when on about route', () => {
     const { container } = renderWithMemoryRouter(<Navigation />, { route: '/about' });
     
     const aboutLink = screen.getByText('About').closest('a');
@@ -31,10 +36,13 @@ describe('Navigation Component', () => {
     
     const homeLink = screen.getByText('Home').closest('a');
     const contactLink = screen.getByText('Contact').closest('a');
+    const themeDemoLink = screen.getByText('Theme Demo').closest('a');
     expect(homeLink.className).not.toContain('activeLink');
     expect(contactLink.className).not.toContain('activeLink');
+    expect(themeDemoLink.className).not.toContain('activeLink');
   });
-    test('contact link has active class when on contact route', () => {
+  
+  test('contact link has active class when on contact route', () => {
     const { container } = renderWithMemoryRouter(<Navigation />, { route: '/contact' });
     
     const contactLink = screen.getByText('Contact').closest('a');
@@ -42,7 +50,23 @@ describe('Navigation Component', () => {
     
     const homeLink = screen.getByText('Home').closest('a');
     const aboutLink = screen.getByText('About').closest('a');
+    const themeDemoLink = screen.getByText('Theme Demo').closest('a');
     expect(homeLink.className).not.toContain('activeLink');
     expect(aboutLink.className).not.toContain('activeLink');
+    expect(themeDemoLink.className).not.toContain('activeLink');
+  });
+  
+  test('theme demo link has active class when on theme-demo route', () => {
+    const { container } = renderWithMemoryRouter(<Navigation />, { route: '/theme-demo' });
+    
+    const themeDemoLink = screen.getByText('Theme Demo').closest('a');
+    expect(themeDemoLink.className).toContain('activeLink');
+    
+    const homeLink = screen.getByText('Home').closest('a');
+    const aboutLink = screen.getByText('About').closest('a');
+    const contactLink = screen.getByText('Contact').closest('a');
+    expect(homeLink.className).not.toContain('activeLink');
+    expect(aboutLink.className).not.toContain('activeLink');
+    expect(contactLink.className).not.toContain('activeLink');
   });
 });
